@@ -21,6 +21,9 @@
 !*.png
 
 !AlarmFlask/
+!static/
+!templates/
+!uploads/
 
 # MAC HIDDEN FILES
 .DS_Store
