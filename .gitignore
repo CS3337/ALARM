@@ -10,10 +10,14 @@
 !libs
 !libs/**
 
+!*.py
+!*.html
+!*.php
 
 !*.txt
 !*.md
 !*.jpg
+!*.jpeg
 !*.png
 
 
