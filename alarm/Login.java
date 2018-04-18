@@ -46,13 +46,14 @@ public class Login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Search for any cookies created for a saved session
 		Cookie[] cookies = request.getCookies();
-		if(cookies != null) 
-			for(Cookie c: cookies) 
+		if(cookies != null) {
+			for(Cookie c: cookies) {
 				if(c.getName().equals("authUser")) {
-					response.sendRedirect("/CS3337/Homepage");
+					response.sendRedirect("Homepage");
 					return;
 				}
-		
+			}
+		}
 		request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request, response);
 	}
 
@@ -97,13 +98,13 @@ public class Login extends HttpServlet {
 				}
 
 				// Redirected to the homepage if a valid user was found
-				response.sendRedirect("/CS3337/Homepage");
+				response.sendRedirect("Homepage");
 				return;				
 			}
 		}
 		
 		//Redirect to the login page when invalid credentials are inputted
-		doGet(request, response);
+		request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request, response);
 		return;
 	}
 
