@@ -2,7 +2,13 @@
 	pageEncoding="ISO-8859-1"%>
 
 <jsp:useBean class="models.BGBean" id="bg"/>
-	
+
+<style>
+.custom{
+  margin-top:30px;
+}
+</style>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,8 +32,8 @@
 <body>
 <div class="container-fluid">
 	<div class="row">
-		<div class=" col-sm-4 col offset-4">
-			<div class="jumbotron text-center">
+		<div class=" col-sm-2 col offset-5">
+			<div class="jumbotron text-center custom">
 				<h1 class="display-4">ALARM</h1>
 				<h4>A Loud Armed Raspberry Machine</h4>
 			</div>

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
-
+<jsp:useBean class="models.BGBean" id="bg"/>
 <%-- Section Brandon added into the code --%>
 <sql:setDataSource driver="com.mysql.jdbc.Driver"
 	url="jdbc:mysql://cs3.calstatela.edu/cs3337stu02" 
@@ -30,42 +30,35 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-
+		
 <style>
 table, td, th {
 	border: 1px solid black;
 }
-
 table {
 	table-layout: fixed;
-	width: 100%;
+	width: 90%;
 	white-space: nowrap;
 }
-
 .row-job {
 	width: 30%;
 }
+.custom{
+	margin-top:20px;
+}
+
 </style>
+
 </head>
 <body>
-	<h1>
-		<center>Welcome to the ALARM Homepage</center>
-	</h1>
-	<h4>
-		<center>
-			<a href='Settings'> My Settings </a> - <a href='Logout'>Logout</a>
-		</center>
-	</h4>
-	<center>
-		<select>
-			<option selected disabled hidden>Sort by</option>
-			<option value="newest">Most Recent</option>
-			<option value="oldest">Oldest</option>
-		</select>
-	</center>
-	<!--<c:out value="This is a test JSTL page" /> -->
 	<div class="container">
-		<div class="row">
+		<div class="row justify-content-between">
+			<h1>Alarm Homepage</h1>
+			<h4><a href='Settings'> My Settings </a> - <a href='Logout'>Logout</a></h4>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row custom">
 			<div class="col-md-15">
 				<div class="panel-body">
 					<table class="table table-hover table-striped table-bordered">
@@ -88,7 +81,6 @@ table {
 	<%-- Section Brandon Added into the code --%>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-15">
 				<div class="panel-body">
 					<table class="table table-hover table-striped table-bordered">
 						<tr>
@@ -106,7 +98,6 @@ table {
 					</c:forEach>
 					</table>
 				</div>
-			</div>
 		</div>
 	</div>
 	<%-- End of section --%>
