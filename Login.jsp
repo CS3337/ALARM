@@ -24,7 +24,7 @@
 <body>
 
 <body>
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
 		<div class=" col-sm-4 col offset-4">
 			<div class="jumbotron text-center">
@@ -32,14 +32,14 @@
 				<h4>A Loud Armed Raspberry Machine</h4>
 			</div>
 			
-				<form action="Homepage" method="post">
+				<form action="Login" method="post">
 					<div class="form-group">
 						<label>Username (E-mail Address)</label> 
-						<input	class="form-control" type="text" name="username" placeholder="Email">
+						<input class="form-control" type="text" name="username" placeholder="Email">
 					</div>
 					<div class="form-group">
 						<label>Password</label> 
-						<input class="form-control"type="password" name="password" placeholder="Password">
+						<input class="form-control" type="password" name="password" placeholder="Password">
 					</div>
 					<div class="checkbox">
 						<label> <input type="checkbox" name="rememberMe">Remember Me </label>
