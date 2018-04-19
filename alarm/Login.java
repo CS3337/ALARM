@@ -62,14 +62,6 @@ public class Login extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		// If the user submitted bad input, just redisplay the form
-		if (username == null || username.trim().length() == 0 ||
-			password == null || password.trim().length() == 0) {
-			
-			doGet(request, response);
-			return;
-		}
-		
 		//Fetch the arraylist of users in the database 
 		ArrayList<User> users = (ArrayList<User>) getServletContext().getAttribute("users");
 		
