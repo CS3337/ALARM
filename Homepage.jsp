@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
-<sql:setDataSource driver="com.mysql.jdbc.Driver"
+<sql:setDataSource var="dataSource"
+	driver="com.mysql.jdbc.Driver"
 	url="jdbc:mysql://cs3.calstatela.edu/cs3337stu02" 
 	user="cs3337stu02"
 	password="jHhtJPQl" />
@@ -15,6 +16,9 @@
 		</sql:query>
 	</c:catch>
 </c:if> 
+
+<sql:query dataSource="${dataSource}"
+    sql="select id, name from ImageTable" var="result" />
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -78,15 +82,14 @@
 		</div>
 	</div>
 	
-	<%-- Section Brandon Added into the code --%>
 	<div class="container">
 		<div class="row">
 				<div class="panel-body">
-					<table class="table table-hover table-striped table-bordered" style="column-width: auto">
+					<table class="table table-hover table-striped table-bordered">
 						<tr>
-							<c:forEach items="${sqlquery.columnNames}" var="heading">
-								<th>${heading}</th>
-							</c:forEach>
+							<th width="25%">Date</th>
+							<th width="25%">Time</th>
+							<th width="50%">URL</th>
 						</tr>
 		
 					<c:forEach items="${sqlquery.rowsByIndex}" var="row">
@@ -97,10 +100,22 @@
 						</tr>
 					</c:forEach>
 					</table>
+					
+					<table style="color:white" width="100%" border="1">
+					    <c:forEach var="row" items="${result.rows}">
+					        <tr>
+					        	<td>${row.id}</td>
+					        	<td>${row.name}</td>
+					            <td>
+					               <img src="${pageContext.servletContext.contextPath }/Homepage?id=${row.id}" />
+					            </td>
+					        </tr>
+					    </c:forEach>
+					</table>
+					
 				</div>
 		</div>
 	</div>
-	<%-- End of section --%>
-
+	
 </body>
 </html>
