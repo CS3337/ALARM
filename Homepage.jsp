@@ -3,8 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
-<jsp:useBean class="models.BGBean" id="bg"/>
-<%-- Section Brandon added into the code --%>
 <sql:setDataSource driver="com.mysql.jdbc.Driver"
 	url="jdbc:mysql://cs3.calstatela.edu/cs3337stu02" 
 	user="cs3337stu02"
@@ -18,46 +16,48 @@
 	</c:catch>
 </c:if> 
 
-<%-- End of section --%>
-	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ALARM</title>
-
+<title>ALARM: Home</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-		
-<style>
-table, td, th {
-	border: 1px solid black;
-}
-table {
-	table-layout: fixed;
-	width: 90%;
-	white-space: nowrap;
-}
-.row-job {
-	width: 30%;
-}
-.custom{
-	margin-top:20px;
-}
-
-</style>
-
+		<style>
+		table, td, th {
+			border: 1px solid black;
+		}
+		table {
+			table-layout: fixed;
+			width: 90%;
+			white-space: nowrap;
+		}
+		.row-job {
+			width: 30%;
+		}
+		.custom{
+			margin-top:20px;
+		}
+		.bg-pref{
+					background-size: cover;
+					background-position: center center;
+					background-repeat: no-repeat;
+					width: 100%;
+					height: 100%;
+				}
+		</style>
 </head>
-<body>
+
+<body class="bg-pref" background="http://www.desktop-screens.com/data/out/92/3326669-raspberry-pi-wallpapers.png" style="color:white">
 	<div class="container">
 		<div class="row justify-content-between">
-			<h1>Alarm Homepage</h1>
-			<h4><a href='Settings'> My Settings </a> - <a href='Logout'>Logout</a></h4>
+			<h1 style="color:white">Alarm Homepage</h1>
+			<h4><a href='Settings'> Settings </a> - <a href='Logout'>Logout</a></h4>
 		</div>
 	</div>
-	<div class="container">
+	<div class="container" style="color:white">
 		<div class="row custom">
 			<div class="col-md-15">
 				<div class="panel-body">
@@ -82,7 +82,7 @@ table {
 	<div class="container">
 		<div class="row">
 				<div class="panel-body">
-					<table class="table table-hover table-striped table-bordered">
+					<table class="table table-hover table-striped table-bordered" style="column-width: auto">
 						<tr>
 							<c:forEach items="${sqlquery.columnNames}" var="heading">
 								<th>${heading}</th>
