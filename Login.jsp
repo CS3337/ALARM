@@ -17,21 +17,24 @@
 		.custom{
 			margin-top:20px;
 		}
-		.bg-pref{
-			background-size: cover;
-			background-position: center center;
-			background-repeat: no-repeat;
-			width: 100%;
-			height: 100%;
+		#background {
+		    width: 100%; 
+		    height: 100%; 
+		    left: 0px; 
+		    top: 0px; 
+		}
+		.stretch {
+		    width:100%;
+		    height:100%;
 		}
 	</style>
 </head>
 
-<body class="bg-pref" background="http://www.desktop-screens.com/data/out/92/3326669-raspberry-pi-wallpapers.png">
+<body background="http://www.desktop-screens.com/data/out/92/3326669-raspberry-pi-wallpapers.png">
 <body>
 <div class="container">
-	<div class="row">
-		<div class=" col-4">
+	<div class="row justify-content-center">
+		<div class=" col-5">
 			<div style="background:white" class="jumbotron text-center custom">
 				<h1>ALARM</h1>
 				 <hr class="my-4">
