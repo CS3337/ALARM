@@ -45,17 +45,16 @@
 				<form action="Login" method="post">
 					<div class="form-group">
 						<label>Username (E-mail Address)</label> 
-						<input class="form-control" type="text" name="username" placeholder="Email">
+						<input class="form-control" type="text" name="username" placeholder="abcd">
 					</div>
 					<div class="form-group">
 						<label>Password</label> 
-						<input class="form-control" type="password" name="password" placeholder="Password">
+						<input class="form-control" type="password" name="password" placeholder="1234">
 					</div>
 					<div class="checkbox">
 						<label> <input type="checkbox" name="rememberMe"> Remember Me </label>
 					</div>
 						<button type="submit" class="btn btn-primary">Login</button>
-						<b> Temp Login: abcd/1234</b>
 					</div>
 				</form>
 			</div>
