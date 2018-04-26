@@ -24,6 +24,7 @@
 !static/
 !templates/
 !uploads/
+!AlarmInterface/
 
 # MAC HIDDEN FILES
 .DS_Store
