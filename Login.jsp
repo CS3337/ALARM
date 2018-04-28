@@ -30,7 +30,7 @@
 	</style>
 </head>
 
-<body background="http://www.desktop-screens.com/data/out/92/3326669-raspberry-pi-wallpapers.png">
+<body background="http://www.solidbackgrounds.com/images/2560x1440/2560x1440-cool-black-solid-color-background.jpg">
 <body>
 <div class="container">
 	<div class="row justify-content-center">

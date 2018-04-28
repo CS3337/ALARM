@@ -11,20 +11,6 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 		<style>
-		table, td, th {
-			border: 1px solid black;
-		}
-		table {
-			table-layout: fixed;
-			width: 100%;
-			white-space: nowrap;
-		}
-		.row-job {
-			width: 30%;
-		}
-		.custom {
-			margin-top:20px;
-		}
 		#background {
 		    width: 100%; 
 		    height: 100%; 
@@ -57,7 +43,9 @@
 		    color: #f1f1f1;
 		}
 		.main {
-		    margin-left: 225px; /* Same as the width of the sidenav */
+			margin-top:20px;
+		    margin-left: 250px;
+		    margin-right: 50px;
 		}
 		@media screen and (max-height: 450px) {
 		  .sidenav {padding-top: 15px;}
@@ -66,44 +54,35 @@
 		</style>
 </head>
 
-<body background="http://chainimage.com/images/1920x1080-air-force-dark-blue-and-air-superiority-blue-two-color.jpg" style="color:white">
+<body background="http://www.solidbackgrounds.com/images/2560x1440/2560x1440-cool-black-solid-color-background.jpg" style="color:white">
 	<div class="sidenav">
 		<a href="Homepage">Home</a>
 		<a href="Settings">Settings</a>
+		<a href="Photos">Photos</a>
+		<a href="Videos">Videos</a>
 		<a href="Logout">Logout</a>
-		<a href="#">Contact</a>
 	</div>
-	<div class="container custom">
-		<div class="row justify-content-between">
-			<h1>Settings</h1>
-		</div>
-	</div>
+	
 	<div class="main">
-		<div class="container">
-			<div class="row">
-				<div class="panel-body">
-					<table class="table table-dark table-hover table-striped table-bordered">
-		               	<tr>
-		    				<th>Option</th>
-		    				<th>Choices</th> 
-						</tr>
-						<tr>
-			   				<td>Shutdown?</td>
-			   				<td><button class="btn btn-danger btn-sm">Shut Down</button></td>
-			 			</tr>
-			 			<tr>
-			   				<td>Reset?</td>
-			   				<td><button class="btn btn-danger btn-sm">Reset</button></td>
-			 			</tr>
-			 			<tr>
-			   				<td>Wipe Gallery?</td>
-			   				<td><button class="btn btn-danger btn-sm">Wipe</button></td>
-			 			</tr>
-		               </table>
-		        </div>
-		    </div>
-		</div>
-	<img src="https://goo.gl/RxDRs7" alt="rattle">
+		<h1><strong>Settings</strong></h1>
+			<table class="table table-dark table-hover table-striped table-bordered">
+				<th>Option</th>
+				<th>Choices</th>
+				<tr>
+					<td>Shutdown?</td>
+					<td><button class="btn btn-danger btn-sm">Shut Down</button></td>
+				</tr>
+				<tr>
+					<td>Reset?</td>
+					<td><button class="btn btn-danger btn-sm">Reset</button></td>
+				</tr>
+				<tr>
+					<td>Wipe Gallery?</td>
+					<td><button class="btn btn-danger btn-sm">Wipe</button></td>
+				</tr>
+			</table>
+		<img src="https://goo.gl/RxDRs7" alt="rattle">
+
 	</div>
 </body>
 </html>

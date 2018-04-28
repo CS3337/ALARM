@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
@@ -9,15 +9,15 @@
 	user="cs3337stu02"
 	password="jHhtJPQl" />
 	
-<sql:query var="result" dataSource="${dataSrc}">
+<sql:query var="photos" dataSource="${dataSrc}">
         SELECT id, date, time FROM ImageTable
 </sql:query>
-    
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ALARM: Home</title>
+<title>ALARM: Photos</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -59,6 +59,10 @@
 		    margin-left: 250px;
 		    margin-right: 50px;
 		}
+		.imageContainer > img:hover {
+			width: 500px;
+			height: 500px;
+		}
 		@media screen and (max-height: 450px) {
 		  .sidenav {padding-top: 15px;}
 		  .sidenav a {font-size: 18px;}
@@ -74,28 +78,21 @@
 		<a href="Videos">Videos</a>
 		<a href="Logout">Logout</a>
 	</div>
-
-	<div class="main">
-		<h1><strong>Home</strong></h1>
-			<table class="table table-dark table-hover table-striped table-bordered" align="left">
-				<th width="15%">Date</th>
-				<th width="15%">Time</th>
-				<th width="40%">PlaceHolder</th>
-				<th width="15%"><center>View Image</center></th>
-				<th width="15%">View Recording</th>
-				    <c:forEach var="row" items="${result.rows}">
-				        <tr>
-				        	<td>${row.date}</td>
-				        	<td>${row.time}</td>
-				        	<td>Placeholder</td>
-				            <td>
-				               <a href="${pageContext.request.contextPath}/CS3337/Homepage?id=${row.id}"><center> View </center></a>
-				            </td>
-				            <td>Video Link </td>
-				        </tr>
-				    </c:forEach>
-			</table>
-	</div> 
 	
+	<div class="main">
+		<h1><strong>Photos</strong></h1>
+			<div class="row">
+				<c:forEach var="row" items="${photos.rows}">
+					<div class="thumbnail">
+						<div class="col-sm imageContainer">
+							<img id ="img${row.id}" src="${pageContext.request.contextPath}/CS3337/Photos?id=${row.id}" width="175" height="175">
+				  				<div class="caption">
+					    			${row.date} @ ${row.time}
+								</div>
+						</div>
+					</div>
+				</c:forEach>
+		    </div>
+	</div>
 </body>
 </html>
