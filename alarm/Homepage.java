@@ -6,13 +6,18 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.mysql.fabric.Response;
+
 
 @WebServlet("/CS3337/Homepage")
 public class Homepage extends HttpServlet {
@@ -25,30 +30,44 @@ public class Homepage extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
-		
-		String sql = "SELECT * FROM alarm";
-		getServletContext().setAttribute("sql", sql);
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 	    final String driver = "com.mysql.jdbc.Driver";
 	    final String url = "jdbc:mysql://cs3.calstatela.edu/cs3337stu02";
 	    final String user = "cs3337stu02";
 	    final String password = "jHhtJPQl";
+	    
+	    Connection connect = null;
+	    PreparedStatement stmtImg = null;
+	    PreparedStatement stmtVid = null;
+	    
 	    try {
 	        Class.forName(driver);
-	        Connection conn = DriverManager.getConnection(url, user, password);
+	        connect = DriverManager.getConnection(url, user, password);
 
-	        PreparedStatement stmt = conn.prepareStatement("select img from users where id=?");
-	        stmt.setLong(1, Long.valueOf(request.getParameter("id")));
-	        ResultSet rs = stmt.executeQuery();
-	        if (rs.next()) {
+	        stmtImg = connect.prepareStatement("SELECT IMG, VIDEO FROM ImageTable WHERE id=?");
+	        stmtImg.setLong(1, Long.valueOf(request.getParameter("id")));
+	        ResultSet rs = stmtImg.executeQuery();
+	        if (rs.next()) 
 	            response.getOutputStream().write(rs.getBytes("img"));
-	        }
-	        conn.close();
-	    } catch (Exception e) {
+
+	    } catch (Exception e){
 	        e.printStackTrace();
+	    } finally {
+	    	try {
+				stmtImg.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    	try {
+				connect.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	    }
 		request.getRequestDispatcher( "/WEB-INF/Homepage.jsp" ).forward(
 	            request, response );
