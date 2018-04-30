@@ -3,21 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
-<sql:setDataSource var="dataSrc"
-	driver="com.mysql.jdbc.Driver"
-	url="jdbc:mysql://cs3.calstatela.edu/cs3337stu02" 
-	user="cs3337stu02"
-	password="jHhtJPQl" />
-	
-<sql:query var="result" dataSource="${dataSrc}">
-        SELECT id, date, time FROM ImageTable
-</sql:query>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ALARM: Videos</title>
+<title>ALARM: Live</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -77,9 +67,9 @@
 	</div>
 	
 	<div class="main">
-		<h1><strong>Videos</strong></h1>
+		<h1><strong>Live</strong></h1>
 			<div class="row">
-
+				<video width="800" height="600" controls></video>
 		    </div>
 		</div>
 	</div>

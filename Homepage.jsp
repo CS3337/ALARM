@@ -69,9 +69,10 @@
 <body background="http://www.solidbackgrounds.com/images/2560x1440/2560x1440-cool-black-solid-color-background.jpg" style="color:white">
 	<div class="sidenav">
 		<a href="Homepage">Home</a>
-		<a href="Settings">Settings</a>
 		<a href="Photos">Photos</a>
 		<a href="Videos">Videos</a>
+		<a href="Live">Live</a>
+		<a href="Settings">Settings</a>
 		<a href="Logout">Logout</a>
 	</div>
 
@@ -80,9 +81,9 @@
 			<table class="table table-dark table-hover table-striped table-bordered" align="left">
 				<th width="15%">Date</th>
 				<th width="15%">Time</th>
-				<th width="40%">PlaceHolder</th>
+				<th width="40%">Placeholder</th>
 				<th width="15%"><center>View Image</center></th>
-				<th width="15%">View Recording</th>
+				<th width="15%"><center>View Recording</center></th>
 				    <c:forEach var="row" items="${result.rows}">
 				        <tr>
 				        	<td>${row.date}</td>
@@ -91,7 +92,7 @@
 				            <td>
 				               <a href="${pageContext.request.contextPath}/CS3337/Homepage?id=${row.id}"><center> View </center></a>
 				            </td>
-				            <td>Video Link </td>
+				            <td><center> Video Link </center></td>
 				        </tr>
 				    </c:forEach>
 			</table>

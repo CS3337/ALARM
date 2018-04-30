@@ -57,9 +57,10 @@
 <body background="http://www.solidbackgrounds.com/images/2560x1440/2560x1440-cool-black-solid-color-background.jpg" style="color:white">
 	<div class="sidenav">
 		<a href="Homepage">Home</a>
-		<a href="Settings">Settings</a>
 		<a href="Photos">Photos</a>
 		<a href="Videos">Videos</a>
+		<a href="Live">Live</a>
+		<a href="Settings">Settings</a>
 		<a href="Logout">Logout</a>
 	</div>
 	
