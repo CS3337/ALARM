@@ -63,10 +63,12 @@
 		  .sidenav {padding-top: 15px;}
 		  .sidenav a {font-size: 18px;}
 		}
+
 		</style>
 </head>
 
 <body background="http://www.solidbackgrounds.com/images/2560x1440/2560x1440-cool-black-solid-color-background.jpg" style="color:white">
+	
 	<div class="sidenav">
 		<a href="Homepage">Home</a>
 		<a href="Photos">Photos</a>
@@ -75,20 +77,20 @@
 		<a href="Settings">Settings</a>
 		<a href="Logout">Logout</a>
 	</div>
-
+	
 	<div class="main">
-		<h1><strong>Home</strong></h1>
-			<table class="table table-dark table-hover table-striped table-bordered" align="left">
-				<th width="15%">Date</th>
-				<th width="15%">Time</th>
-				<th width="40%">Placeholder</th>
+		<h1><strong>Recent Activity</strong></h1>
+			<table id="myTable" class="table table-dark table-hover table-striped table-bordered" align="left">
+				<th width="15%" onclick="sortTable(0)">Date</th>
+				<th width="15%" onclick="sortTable(1)">Time</th>
+				<th width="40%">Description</th>
 				<th width="15%"><center>View Image</center></th>
 				<th width="15%"><center>View Recording</center></th>
 				    <c:forEach var="row" items="${result.rows}">
 				        <tr>
 				        	<td>${row.date}</td>
 				        	<td>${row.time}</td>
-				        	<td>Placeholder</td>
+				       		<td>Description</td>
 				            <td>
 				               <a href="${pageContext.request.contextPath}/CS3337/Homepage?id=${row.id}"><center> View </center></a>
 				            </td>
@@ -96,7 +98,47 @@
 				        </tr>
 				    </c:forEach>
 			</table>
-	</div> 
+	</div>
+	
+	<script>
+	function sortTable(n) {
+	  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+	  table = document.getElementById("myTable");
+	  switching = true;
+	  dir = "asc"; 
+	  while (switching) {
+	    switching = false;
+	    rows = table.getElementsByTagName("TR");
+	    for (i = 1; i < (rows.length - 1); i++) {
+	      shouldSwitch = false;
+	      x = rows[i].getElementsByTagName("TD")[n];
+	      y = rows[i + 1].getElementsByTagName("TD")[n];
+	      if (dir == "asc") {
+	        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+	          shouldSwitch= true;
+	          break;
+	        }
+	      } else if (dir == "desc") {
+	        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+	          shouldSwitch= true;
+	          break;
+	        }
+	      }
+	    }
+	    if (shouldSwitch) {
+	      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+	      switching = true;
+	      switchcount ++;      
+	    } else {
+	      if (switchcount == 0 && dir == "asc") {
+	        dir = "desc";
+	        switching = true;
+	      }
+	    }
+	  }
+	}
+	</script>
+	
 	
 </body>
 </html>

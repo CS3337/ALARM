@@ -67,9 +67,9 @@
 	</div>
 	
 	<div class="main">
-		<h1><strong>Live</strong></h1>
+		<h1><strong>Live Feed</strong></h1>
 			<div class="row">
-				<video width="800" height="600" controls></video>
+				<video align="center" width="800" height="600" controls></video>
 		    </div>
 		</div>
 	</div>

@@ -81,7 +81,7 @@
 	</div>
 	
 	<div class="main">
-		<h1><strong>Photos</strong></h1>
+		<h1><strong>Intruder Snapshots</strong></h1>
 			<div class="row">
 				<c:forEach var="row" items="${photos.rows}">
 					<div class="thumbnail">

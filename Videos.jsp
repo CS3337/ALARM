@@ -77,7 +77,7 @@
 	</div>
 	
 	<div class="main">
-		<h1><strong>Videos</strong></h1>
+		<h1><strong>Video Recordings</strong></h1>
 			<div class="row">
 
 		    </div>

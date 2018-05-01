@@ -82,8 +82,6 @@
 					<td><button class="btn btn-danger btn-sm">Wipe</button></td>
 				</tr>
 			</table>
-		<img src="https://goo.gl/RxDRs7" alt="rattle">
-
 	</div>
 </body>
 </html>
