@@ -29,6 +29,7 @@ public class Homepage extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
+		
 		super.init(config);
 	}
 
@@ -38,6 +39,8 @@ public class Homepage extends HttpServlet {
 	    final String url = "jdbc:mysql://cs3.calstatela.edu/cs3337stu02";
 	    final String user = "cs3337stu02";
 	    final String password = "jHhtJPQl";
+	    
+	    String username = request.getParameter("username");
 	    
 	    Connection connect = null;
 	    PreparedStatement stmtImg = null;
