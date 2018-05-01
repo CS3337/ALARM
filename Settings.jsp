@@ -67,20 +67,20 @@
 	<div class="main">
 		<h1><strong>Settings</strong></h1>
 			<table class="table table-dark table-hover table-striped table-bordered">
-				<th>Option</th>
-				<th>Choices</th>
-				<tr>
-					<td>Shutdown?</td>
-					<td><button class="btn btn-danger btn-sm">Shut Down</button></td>
-				</tr>
-				<tr>
-					<td>Reset?</td>
-					<td><button class="btn btn-danger btn-sm">Reset</button></td>
-				</tr>
-				<tr>
-					<td>Wipe Gallery?</td>
-					<td><button class="btn btn-danger btn-sm">Wipe</button></td>
-				</tr>
+				<th width="30%">Option</th>
+				<th width="30%">Choices</th>
+					<tr>
+						<td>Shutdown?</td>
+						<td><button class="btn btn-danger btn-sm">Shut Down</button></td>
+					</tr>
+					<tr>
+						<td>Reset?</td>
+						<td><button class="btn btn-danger btn-sm">Reset</button></td>
+					</tr>
+					<tr>
+						<td>Wipe Gallery?</td>
+						<td><button class="btn btn-danger btn-sm">Wipe</button></td>
+					</tr>
 			</table>
 	</div>
 </body>

@@ -9,7 +9,7 @@
 	user="cs3337stu02"
 	password="jHhtJPQl" />
 	
-<sql:query var="result" dataSource="${dataSrc}">
+<sql:query var="videos" dataSource="${dataSrc}">
         SELECT id, date, time FROM ImageTable
 </sql:query>
 
@@ -79,7 +79,14 @@
 	<div class="main">
 		<h1><strong>Video Recordings</strong></h1>
 			<div class="row">
-
+				<div class="col-sm">
+					<c:forEach var="row" items="${videos.rows}">
+						<strong align="top"> ${row.date} @ ${row.time} </strong>
+						<video width="400" height="300" style="margin-right:10px" controls> 
+							<source src="${pageContext.request.contextPath}/CS3337/Videos?id=${row.id}" type="video/mp4">
+						</video>
+					</c:forEach>
+				</div>
 		    </div>
 		</div>
 	</div>

@@ -92,9 +92,11 @@
 				        	<td>${row.time}</td>
 				       		<td>Description</td>
 				            <td>
-				               <a href="${pageContext.request.contextPath}/CS3337/Homepage?id=${row.id}"><center> View </center></a>
+				            	<a href="${pageContext.request.contextPath}/CS3337/Photos?id=${row.id}"><center> View </center></a>
 				            </td>
-				            <td><center> Video Link </center></td>
+				            <td>
+				            	<a href="${pageContext.request.contextPath}/CS3337/Videos?id=${row.id}"><center> View </center></a>
+				            </td>
 				        </tr>
 				    </c:forEach>
 			</table>

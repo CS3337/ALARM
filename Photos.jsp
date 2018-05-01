@@ -87,9 +87,9 @@
 					<div class="thumbnail">
 						<div class="col-sm imageContainer">
 							<img id ="img${row.id}" src="${pageContext.request.contextPath}/CS3337/Photos?id=${row.id}" width="175" height="175">
-				  				<div class="caption">
-					    			${row.date} @ ${row.time}
-								</div>
+					    		<p>
+					    		${row.date} @ ${row.time}
+					    		</p>
 						</div>
 					</div>
 				</c:forEach>
