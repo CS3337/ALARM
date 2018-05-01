@@ -68,9 +68,22 @@
 	
 	<div class="main">
 		<h1><strong>Live Feed</strong></h1>
-			<div class="row">
-				<video width="800" height="600" controls></video>
-		    </div>
+		<div id="twitch-embed"></div>
+			<script src="https://embed.twitch.tv/embed/v1.js">
+			</script>
+			<script type="text/javascript">
+			var embed = new Twitch.Embed("twitch-embed", {
+		    	width: 854,
+		        height: 480,
+		        channel: "monstercat",
+		        layout: "video",
+		        autoplay: false
+			});
+				embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+		        var player = embed.getPlayer();
+		        player.play();
+		    });
+	    	</script>
 		</div>
 	</div>
 </body>
