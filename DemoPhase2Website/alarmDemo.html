@@ -1,0 +1,205 @@
+
+
+
+
+
+
+	
+
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>ALARM: Home</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+		<style>
+		.custom {
+			margin-top:20px;
+		}
+		#background {
+		    width: 100%; 
+		    height: 100%; 
+		    left: 0px; 
+		    top: 0px; 
+		}
+		.stretch {
+		    width:100%;
+		    height:100%;
+		}
+		.sidenav {
+		    height: 100%;
+		    width: 200px;
+		    position: fixed;
+		    z-index: 1;
+		    top: 0;
+		    left: 0;
+		    background-color: #111;
+		    overflow-x: hidden;
+		    padding-top: 20px;
+		}
+		.sidenav a {
+		    padding: 6px 6px 6px 32px;
+		    text-decoration: none;
+		    font-size: 25px;
+		    color: #818181;
+		    display: block;
+		}
+		.sidenav a:hover {
+		    color: #f1f1f1;
+		}
+		.main {
+		    margin-left: 205px;
+		}
+		@media screen and (max-height: 450px) {
+		  .sidenav {padding-top: 15px;}
+		  .sidenav a {font-size: 18px;}
+		}
+		</style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<?php
+	// directory to watch
+	$dirWatch = 'watch_dir';
+
+	// Open an inotify instance
+	$inoInst = inotify_init();
+
+	// this is needed so inotify_read while operate in non blocking mode
+	stream_set_blocking($inoInst, 0);
+
+	// watch if a file is created or deleted in our directory to watch
+	$watch_id = inotify_add_watch($inoInst, $dirWatch, IN_CREATE | IN_DELETE);
+	$nothing = true;
+	// not the best way but sufficient for this example :-)
+	while($nothing){
+
+	  // read events (
+	  // which is non blocking because of our use of stream_set_blocking
+	  $events = inotify_read($inoInst);
+	  if ($events[0]['mask']===IN_CREATE){
+		$nothing = false;
+	  }
+	  // output data
+	  print_r($events[0]['name']);
+	}
+
+	// stop watching our directory
+	inotify_rm_watch($inoInst, $watch_id);
+
+	// close our inotify instance
+	fclose($inoInst);
+?>
+<script>
+	function dateNow(){
+		var date = new Date();
+		var dd = date.getDate();
+		var mm = date.getMonth()+1;
+		var yyyy = date.getFullYear();
+		if(dd < 10){
+			dd = "0"+dd;
+		}
+		if(mm <10){
+			mm = "0" +mm;
+		}
+		return yyyy +"/"+mm+"/"+dd;
+	}
+	function timeNow(){
+		var totSec = new Date().getTime()/1000;
+		var sec = Math.floor(totSec %60);
+		var min = Math.floor((totSec/ 60)%60);
+		var hour = Math.floor((min/60) % 12);
+		if(sec <10){
+			sec = "0"+sec;
+		}
+		if(min <10){
+			min = "0"+min;
+		}
+		if(hour <10){
+			hour = "0"+hour;
+		}
+		return hour+":"+min+":"+sec;
+	}
+	function makeRow(date, time, cell4HTML){
+		var table = document.getElementById("eventTable");
+		var row = table.insertRow(1);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		var cell5 = row.insertCell(4);
+		cell1.innerHTML= date;
+		cell2.innerHTML=time;
+		cell3.innerHTML= "PlaceHolder";
+		cell4.innerHTML= cell4HTML
+		cell5.innerHTML= "Video Link";
+	}
+	var time1 = timeNow();
+	$(document).ready(function(){
+		makeRow(dateNow(), time1, "<a href='./photos/photo1.jpg'><center>View</center></a>");
+	});
+ 
+</script>
+<body background="http://www.solidbackgrounds.com/images/2560x1440/2560x1440-cool-black-solid-color-background.jpg" style="color:white">
+	<div class="sidenav">
+		<a href="alarmDemo.html">Home</a>
+		<a href="photosDemo.html">Photos</a>
+		<a href="videosDemo.html">Videos</a>
+		<a href="liveDemo.html">Live</a>
+		<a href="settingsDemo.html">Settings</a>
+		<!--<a href="loginDemo.html">Logout</a>-->
+	</div>
+
+	<div class="main">
+		<div class="container custom">
+			<h1><strong>Recent Activity</strong></h1>
+		</div>
+		<div class="container custom">
+			
+					<table id="eventTable" class="table table-dark table-hover table-striped table-bordered" align="left">
+						<th width="15%">Date</th>
+						<th width="15%">Time</th>
+						<th width="40%">PlaceHolder</th>
+						<th width="15%"><center>View Image</center></th>
+						<th width="15%">View Recording</th>
+					    
+					        <tr>
+					        	<td>2018-04-19</td>
+					        	<td>17:00:00</td>
+					        	<td>Placeholder</td>
+					            <td>
+					               <a href="./photos/photo1.jpg"><center> View </center></a>
+					            </td>
+					            <td>Video Link </td>
+					        </tr>
+					    
+					        <tr>
+					        	<td>2018-04-19</td>
+					        	<td>18:00:00</td>
+					        	<td>Placeholder</td>
+					            <td>
+					               <a href="./photos/photo2.jpg"><center> View </center></a>
+					            </td>
+					            <td>Video Link </td>
+					        </tr>
+					    
+					        <tr>
+					        	<td>2018-04-03</td>
+					        	<td>09:23:26</td>
+					        	<td>Placeholder</td>
+					            <td>
+					               <a href="./photos/photo3.jpg"><center> View </center></a>
+					            </td>
+					            <td>Video Link </td>
+					        </tr>
+					    
+					</table>	
+
+		</div>
+	</div> 
+	
+</body>
+</html>

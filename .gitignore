@@ -25,6 +25,8 @@
 !templates/
 !uploads/
 !AlarmInterface/
+!photos/
+!DemoPhase2Website/
 
 # MAC HIDDEN FILES
 .DS_Store
