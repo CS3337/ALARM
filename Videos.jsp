@@ -81,10 +81,13 @@
 			<div class="row">
 				<div class="col-sm">
 					<c:forEach var="row" items="${videos.rows}">
-						<strong align="top"> ${row.date} @ ${row.time} </strong>
-						<video width="400" height="300" style="margin-right:10px" controls> 
+					<video width="400" height="300" style="margin-right:10px" controls> 
 							<source src="${pageContext.request.contextPath}/CS3337/Videos?id=${row.id}" type="video/mp4">
 						</video>
+						<p><strong align="top"> ${row.date} @ ${row.time} </strong></p>
+						<!--  <video width="400" height="300" style="margin-right:10px" controls> 
+							<source src="${pageContext.request.contextPath}/CS3337/Videos?id=${row.id}" type="video/mp4">
+						</video> -->
 					</c:forEach>
 				</div>
 		    </div>

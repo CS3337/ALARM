@@ -63,8 +63,8 @@
 		  .sidenav {padding-top: 15px;}
 		  .sidenav a {font-size: 18px;}
 		}
-
 		</style>
+		 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 
 <body background="http://www.solidbackgrounds.com/images/2560x1440/2560x1440-cool-black-solid-color-background.jpg" style="color:white">
@@ -83,7 +83,7 @@
 			<table id="myTable" class="table table-dark table-hover table-striped table-bordered" align="left">
 				<th width="15%" onclick="sortTable(0)">Date</th>
 				<th width="15%" onclick="sortTable(1)">Time</th>
-				<th width="40%">Description</th>
+				<th width="40%">Notes</th>
 				<th width="15%"><center>View Image</center></th>
 				<th width="15%"><center>View Recording</center></th>
 				    <c:forEach var="row" items="${result.rows}">
@@ -103,6 +103,24 @@
 	</div>
 	
 	<script>
+	
+    $(function () {
+        $('td').dblclick(function (event) {
+
+            $(this).html('<input id="change_value" type="text" >')
+
+        });
+		
+ });
+    $('body').on('keypress', "#change_value", function (e) {
+        var key = e.which;
+        if (key == 13)  // the enter key code
+        {
+            $(this).parent().html($(this).val());
+
+        }
+    });
+    
 	function sortTable(n) {
 	  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 	  table = document.getElementById("myTable");
