@@ -79,17 +79,14 @@
 	<div class="main">
 		<h1><strong>Video Recordings</strong></h1>
 			<div class="row">
-				<div class="col-sm">
 					<c:forEach var="row" items="${videos.rows}">
-					<video width="400" height="300" style="margin-right:10px" controls> 
-							<source src="${pageContext.request.contextPath}/CS3337/Videos?id=${row.id}" type="video/mp4">
-						</video>
-						<p><strong align="top"> ${row.date} @ ${row.time} </strong></p>
-						<!--  <video width="400" height="300" style="margin-right:10px" controls> 
-							<source src="${pageContext.request.contextPath}/CS3337/Videos?id=${row.id}" type="video/mp4">
-						</video> -->
+						<div class="col col-md-6">
+							<video width="400" height="300" style="margin-right:10px" controls> 
+								<source src="${pageContext.request.contextPath}/CS3337/Videos?id=${row.id}">
+							</video>
+							<p><strong> #${row.id} - ${row.date} @ ${row.time} </strong></p>
+						</div>
 					</c:forEach>
-				</div>
 		    </div>
 		</div>
 	</div>

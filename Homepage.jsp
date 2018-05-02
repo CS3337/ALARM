@@ -81,16 +81,18 @@
 	<div class="main">
 		<h1><strong>Recent Activity</strong></h1>
 			<table id="myTable" class="table table-dark table-hover table-striped table-bordered" align="left">
-				<th width="15%" onclick="sortTable(0)">Date</th>
-				<th width="15%" onclick="sortTable(1)">Time</th>
+				<th width="3%" onclick="sortTable(0)">ID</th>
+				<th width="15%" onclick="sortTable(1)">Date</th>
+				<th width="15%" onclick="sortTable(2)">Time</th>
 				<th width="40%">Notes</th>
-				<th width="15%"><center>View Image</center></th>
+				<th width="12%"><center>View Image</center></th>
 				<th width="15%"><center>View Recording</center></th>
 				    <c:forEach var="row" items="${result.rows}">
 				        <tr>
+				        	<td>${row.id}
 				        	<td>${row.date}</td>
 				        	<td>${row.time}</td>
-				       		<td>Description</td>
+				       		<td>Add a Description</td>
 				            <td>
 				            	<a href="${pageContext.request.contextPath}/CS3337/Photos?id=${row.id}"><center> View </center></a>
 				            </td>
@@ -103,22 +105,15 @@
 	</div>
 	
 	<script>
-	
     $(function () {
         $('td').dblclick(function (event) {
-
-            $(this).html('<input id="change_value" type="text" >')
-
+            $(this).html('<input id="change_value" type="text" name="desc" >')
         });
-		
- });
+ 	});
     $('body').on('keypress', "#change_value", function (e) {
         var key = e.which;
         if (key == 13)  // the enter key code
-        {
             $(this).parent().html($(this).val());
-
-        }
     });
     
 	function sortTable(n) {

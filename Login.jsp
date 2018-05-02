@@ -45,7 +45,7 @@
 				<form action="Login" method="post">
 					<div class="form-group">
 						<label>Username (E-mail Address)</label> 
-						<input class="form-control" type="text" name="username" placeholder="abcd">
+						<input class="form-control" type="text" name="username" placeholder="alarmuser">
 					</div>
 					<div class="form-group">
 						<label>Password</label> 

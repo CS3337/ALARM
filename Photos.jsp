@@ -86,9 +86,9 @@
 				<c:forEach var="row" items="${photos.rows}">
 					<div class="thumbnail">
 						<div class="col-sm imageContainer">
-							<img id ="img${row.id}" src="${pageContext.request.contextPath}/CS3337/Photos?id=${row.id}" width="175" height="175">
+							<img id ="img${row.id}" src="${pageContext.request.contextPath}/CS3337/Photos?id=${row.id}" width="225" height="175">
 					    		<p>
-					    		${row.date} @ ${row.time}
+					    		#${row.id} - ${row.date} @ ${row.time}
 					    		</p>
 						</div>
 					</div>
