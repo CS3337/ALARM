@@ -66,9 +66,9 @@
 	
 	<div class="main">
 		<h1><strong>Settings</strong></h1>
-			<table class="table table-dark table-hover table-striped table-bordered">
-				<th width="30%">Option</th>
-				<th width="30%">Choices</th>
+			<table class="table table-dark table-hover table-striped table-bordered" style="width:40%">
+				<th>Option</th>
+				<th>Choices</th>
 					<tr>
 						<td>Shutdown?</td>
 						<td><button class="btn btn-danger btn-sm">Shut Down</button></td>
