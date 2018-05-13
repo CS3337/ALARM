@@ -63,7 +63,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <?php
 	// directory to watch
-	$dirWatch = 'watch_dir';
+	$dirWatch = './photos';
 
 	// Open an inotify instance
 	$inoInst = inotify_init();
@@ -84,7 +84,7 @@
 		$nothing = false;
 	  }
 	  // output data
-	  print_r($events[0]['name']);
+	  $fileName = ($events[0]['name']);
 	}
 
 	// stop watching our directory
@@ -93,6 +93,7 @@
 	// close our inotify instance
 	fclose($inoInst);
 ?>
+<script src="watchPhotos.js"></script>
 <script>
 	function dateNow(){
 		var date = new Date();
@@ -105,13 +106,13 @@
 		if(mm <10){
 			mm = "0" +mm;
 		}
-		return yyyy +"/"+mm+"/"+dd;
+		return yyyy +"-"+mm+"-"+dd;
 	}
 	function timeNow(){
 		var totSec = new Date().getTime()/1000;
 		var sec = Math.floor(totSec %60);
 		var min = Math.floor((totSec/ 60)%60);
-		var hour = Math.floor((min/60) % 12);
+		var hour = Math.floor((min/60) % 24);
 		if(sec <10){
 			sec = "0"+sec;
 		}
@@ -134,12 +135,13 @@
 		cell1.innerHTML= date;
 		cell2.innerHTML=time;
 		cell3.innerHTML= "PlaceHolder";
-		cell4.innerHTML= cell4HTML
+		cell4.innerHTML= "<a href=" + cell4HTML + ">
 		cell5.innerHTML= "Video Link";
 	}
 	var time1 = timeNow();
 	$(document).ready(function(){
-		makeRow(dateNow(), time1, "<a href='./photos/photo1.jpg'><center>View</center></a>");
+	
+		
 	});
  
 </script>
@@ -171,7 +173,7 @@
 					        	<td>17:00:00</td>
 					        	<td>Placeholder</td>
 					            <td>
-					               <a href="./photos/photo1.jpg"><center> View </center></a>
+					               <img src="./photos/photo1.jpg" height="200" width="200" />
 					            </td>
 					            <td>Video Link </td>
 					        </tr>
@@ -181,7 +183,7 @@
 					        	<td>18:00:00</td>
 					        	<td>Placeholder</td>
 					            <td>
-					               <a href="./photos/photo2.jpg"><center> View </center></a>
+					               <img src="./photos/photo2.jpg" height="200" width="200"/>
 					            </td>
 					            <td>Video Link </td>
 					        </tr>
@@ -191,7 +193,7 @@
 					        	<td>09:23:26</td>
 					        	<td>Placeholder</td>
 					            <td>
-					               <a href="./photos/photo3.jpg"><center> View </center></a>
+					               <img src="./photos/photo3.jpg" height="200" width="200"/>
 					            </td>
 					            <td>Video Link </td>
 					        </tr>
