@@ -1,0 +1,27 @@
+If samba client is not installed run the following in the terminal:
+
+apt-get install samba-common smbclient samba-common-bin smbclient cifs-utils
+
+Next, a local directory needs to be created for the mount point as follows:
+
+mkdir /localLocation/MountPoint
+
+To mount the server shared folder you will then type the following:
+
+mount -t cifs //server/share /localLocation/MountPoint
+
+where server is the computer or server's name or netbios. MountPoint is going to be the folder you created above on your local machine.
+
+If there is a password you must do the following when trying to mount instead of the above step:
+
+mount -t cifs //server/share /localLocation/MountPoint -o user=user,pass=password,dom=domain
+
+To unmount simply type:
+
+umount /localLocaion/MountPoint
+
+NOTE:**** The above is lowercase uMount, not uNMount
+
+
+user=camera
+pass=alarmist

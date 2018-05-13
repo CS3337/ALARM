@@ -19,6 +19,7 @@
 !*.jpg
 !*.jpeg
 !*.png
+!*.pdf
 
 !AlarmFlask/
 !static/

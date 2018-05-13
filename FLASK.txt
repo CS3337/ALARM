@@ -1,0 +1,21 @@
+To start server manually:
+
+Open the terminal and navigate to:
+
+/home/pi/ALARM
+
+Next, we need to start an instance of virtualenv which is
+our virtual environment:
+
+. venv/bin/activate
+
+(to deactivate this mode, simply type deactivate)
+
+Next, navigate back to the directory where the python 
+file to be executed is located. When there, type:
+
+export FLASK_APP=filename.py
+
+then,
+
+flask run --host=filesname.py
